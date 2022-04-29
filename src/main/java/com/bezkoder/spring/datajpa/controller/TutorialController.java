@@ -50,6 +50,7 @@ public class TutorialController {
 	LoginRepository loginRepository;
 	
 	/////////////////CREATE  LOGIN ////////////////
+	///
 	@PostMapping("/login")
 	public ResponseEntity<Login> createLogin(@RequestBody Login login) {
 		try {
@@ -64,7 +65,9 @@ public class TutorialController {
 	@GetMapping("/tutorials")
 	public ResponseEntity<List<Tutorial>> getAllTutorials(@RequestParam(required = false) String title) {
 		try {
+			
 			List<Tutorial> tutorials = new ArrayList<Tutorial>();
+			List<Tutorial> tutorials2 = new ArrayList<Tutorial>();
 
 			if (title == null)
 				tutorialRepository.findAll().forEach(tutorials::add);
